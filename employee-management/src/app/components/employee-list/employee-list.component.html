@@ -1,0 +1,40 @@
+<div class="container mt-4">
+    <h2 class="text-center">Danh sách nhân viên công ty ABC</h2>
+    <div class="d-flex justify-content-between my-3">
+      <button class="btn btn-primary">Thêm mới</button>
+      <div>
+        <input [(ngModel)]="searchText" (keyup.enter)="search()" class="form-control d-inline w-auto" placeholder="Tìm theo tên hoặc ID">
+        <button class="btn btn-secondary" (click)="search()">Tìm kiếm</button>
+      </div>
+    </div>
+  
+    <table class="table table-bordered table-hover text-center">
+      <thead class="thead-dark">
+        <tr>
+          <th>STT</th>
+          <th>Mã nhân viên</th>
+          <th>Tên nhân viên</th>
+          <th>Ngày sinh</th>
+          <th>Số điện thoại</th>
+          <th>Email</th>
+          <th>Hành động</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let emp of employees; let i = index">
+          <td>{{ i + 1 }}</td>
+          <td>{{ emp.employeeId }}</td>
+          <td>{{ emp.employeeName }}</td>
+          <td>{{ emp.birthday }}</td>
+          <td>{{ emp.phoneNumber }}</td>
+          <td>{{ emp.email }}</td>
+          <td>
+            <button class="btn btn-warning btn-sm">Sửa</button>
+            <button class="btn btn-danger btn-sm" (click)="deleteEmployee(emp.employeeId)">Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  
